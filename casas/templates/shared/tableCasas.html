@@ -1,0 +1,78 @@
+<div class="container-casas">
+    {% if results_page %}
+	<h4>Encontramos {{total_casas}} resultados de casas!</h4>
+	{% endif %}
+	
+	{% if total_casas > 0 %}
+        {% for casa in casas_encontradas %}
+		{% if forloop.counter == 1 %}
+		<div class="casa first">
+		    <div class="image-casa">
+				<a href="{% url 'details' casa.id %}">
+					{% if casa.imagenes %}
+					<img src="{{casa.imagenes.first.imagen.url}}" alt="imagen casa" />
+					{% endif %}
+				</a>
+			</div>
+			<div class="details-casa">
+				<p><strong>Calle: </strong>{{casa.calle}}</p>
+				<p><strong>Colonia: </strong>{{casa.colonia}}</p>
+				<p><strong>Precio: </strong>${{casa.precio}}</p>
+				<p><strong>Baños: </strong>{{casa.banos}}</p>
+				<p><strong>Recamaras: </strong>{{casa.recamaras}}</p>
+				<p><strong>Tamaño en m&#178: </strong>{{casa.metros}}</p>
+			</div>
+	    </div>
+		{% elif forloop.counter == page_size%}
+		<div class="casa last">
+		    <div class="image-casa">
+				<a href="{% url 'details' casa.id %}">
+					{% if casa.imagenes %}
+					<img src="{{casa.imagenes.first.imagen.url}}" alt="imagen casa" />
+					{% endif %}
+				</a>
+			</div>
+			<div class="details-casa">
+				<p><strong>Calle: </strong>{{casa.calle}}</p>
+				<p><strong>Colonia: </strong>{{casa.colonia}}</p>
+				<p><strong>Precio: </strong>${{casa.precio}}</p>
+				<p><strong>Baños: </strong>{{casa.banos}}</p>
+				<p><strong>Recamaras: </strong>{{casa.recamaras}}</p>
+				<p><strong>Tamaño en m&#178: </strong>{{casa.metros}}</p>
+			</div>
+	    </div>
+		{% else %}
+		<div class="casa">
+		    <div class="image-casa">
+				<a href="{% url 'details' casa.id %}">
+					{% if casa.imagenes %}
+					<img src="{{casa.imagenes.first.imagen.url}}" alt="imagen casa" />
+					{% endif %}
+				</a>
+			</div>
+			<div class="details-casa">
+				<p><strong>Calle: </strong>{{casa.calle}}</p>
+				<p><strong>Colonia: </strong>{{casa.colonia}}</p>
+				<p><strong>Precio: </strong>${{casa.precio}}</p>
+				<p><strong>Baños: </strong>{{casa.banos}}</p>
+				<p><strong>Recamaras: </strong>{{casa.recamaras}}</p>
+				<p><strong>Tamaño en m&#178: </strong>{{casa.metros}}</p>
+			</div>
+	    </div>
+		{% endif %}
+	    {% endfor %}
+    {% else %}
+	    <script>
+		    Swal.fire({
+                icon: 'error',
+                title: 'Oh no :(',
+                text: '{{err_message}}',
+              })
+	    </script>
+        <h2>Puedes navegar por el sitio o quedarte aqui si prefieres :)</h2>
+	{% comment %}
+	<h1>Lo siento :(</h1>
+	<h2>No se encontraron resultados para estos filtros.</h2>
+	{% endcomment %}
+    {% endif %}
+</div>

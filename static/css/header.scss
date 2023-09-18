@@ -1,0 +1,152 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	background-color: $colorBase;
+	height: 150px;
+
+	.izq {
+		height: 100%;
+		width: 70%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+		.logo {
+			display: flex;
+			align-items: center;
+			color: $white;
+			margin-left: 20px;
+			height: 60%;
+			width: 100%;
+			img {
+				height: 100%;
+			}
+			.title {
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				text-transform: uppercase;
+				h2 {
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
+		.nav {
+			display: flex;
+			align-items: center;
+			height: 30%;
+			width: 100%;
+			padding-inline-start: 5px;
+			.drop-container {
+				display: none;
+			}
+			.menu-container {
+				width: 100%;
+				height: 100%;
+				ul {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					list-style-type: none;
+
+					li {
+						display: flex;
+						align-items: center;
+						width: 19%;
+						height: 90%;
+						border-radius: 5px;
+						background: $bgLinks;
+						text-transform: uppercase;
+						&:hover {
+							background: $colorBase;
+						}
+						a {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							height: 100%;
+							width: 100%;
+							text-decoration: none;
+							text-align: center;
+							color: $white;
+							&:hover {
+								// color: lighten($bgLinks, 20%);
+								color: $warning;
+								border: solid $bgLinks;
+								border-radius: inherit;
+							}
+						}
+					}
+				}
+			}
+			.search-container {
+				display: none;
+			}
+		}
+	}
+
+	.der {
+		display: flex;
+		height: 100%;
+		width: 20%;
+		justify-content: center;
+		padding-right: 10px;
+		.image {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			a {
+				&:hover{
+					.img1{
+						display: none;
+					}
+					.img2{
+						display: block;
+					}
+				}
+				.img1 {
+					height: 100%;
+					display: block;
+					// &:hover {
+					// 	display: none;
+					// }
+				}
+				.img2 {
+					height: 100%;
+					display: none;
+					// &:hover {
+					// 	display: block;
+					// }
+				}
+			}
+		}
+	}
+}
+@include media("<=tablet") {
+	.header {
+		.izq {
+			.logo {
+				.title {
+					small {
+						display: none;
+					}
+				}
+			}
+			.nav {
+				justify-content: space-between;
+				.drop-container {
+					display: block;
+				}
+				.menu-container {
+					display: none;
+				}
+				.search-container {
+					display: block;
+				}
+			}
+		}
+	}
+}

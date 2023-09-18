@@ -1,0 +1,15 @@
+<div class="footer">
+    {% load static %}
+    <div class="image">
+        <img src="{% static 'img/icons/multicasa_logo.png' %}" alt="">
+    </div>
+    <ul>
+        <li><a href="{% url 'home' %}"><strong>Inicio</strong></a></li>
+        <li><a href=""><strong>Compra</strong></a></li>
+        <li><a href=""><strong>Construir</strong></a></li>
+        <li><a href=""><strong>Venta</strong></a></li>
+        <li><a href=""><strong>Mudanzas</strong></a></li>
+        <li><a href=""><strong>Seguros</strong></a></li>
+        <li><a href="{% url 'contacts' %}"><strong>Contactos</strong></a></li>
+    </ul>
+</div>

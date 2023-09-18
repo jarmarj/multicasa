@@ -1,0 +1,15 @@
+{% extends 'shared/base.html' %} 
+
+{% block content %}
+    <div class="filters">
+        <p><strong>{{filter_message}}</strong></p>
+        <ul>
+            {% for filter in used_filters %}
+            <li><strong>{{filter}}</strong></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% include 'shared/tableCasas.html' %}
+    {% include 'shared/paginator.html' %}
+{% endblock content %}

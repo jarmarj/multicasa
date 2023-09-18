@@ -1,0 +1,64 @@
+<div class="header">
+    {% load static %}
+    <div class="izq">
+        <div class="logo">
+            <img src="{% static 'img/icons/multicasa_logo.png' %}" alt="">
+            <div class="title">
+                <h2>BIENES Raices multicasa</h2>
+                <small>Tu mejor opcion en agencia de bienes raices</small>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="drop-container">
+                <div class="dropdown">    
+                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Menu
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home' %}"><strong>Inicio</strong></a></li>
+                        <li><a href="{% url 'company' %}"><strong>Compa&#241ia</strong></a></li>
+                        <li><a href="{% url 'services' %}"><strong>Servicios</strong></a></li>
+                        <li><a href="{% url 'requisites' %}"><strong>Requisitos</strong></a></li>
+                        <li><a href="{% url 'contacts' %}"><strong>Contactos</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-container">
+                <ul>
+                    <li><a href="{% url 'home' %}"><strong>Inicio</strong></a></li>
+                    <li><a href="{% url 'company' %}"><strong>Compa&#241ia</strong></a></li>
+                    <li><a href="{% url 'services' %}"><strong>Servicios</strong></a></li>
+                    <li><a href="{% url 'requisites' %}"><strong>Requisitos</strong></a></li>
+                    <li><a href="{% url 'contacts' %}"><strong>Contactos</strong></a></li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <div class="dropdown">    
+                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Quieres buscar?
+                    </button>
+                    <ul class="dropdown-menu">
+                        <form action="/results/" method="get">
+                            <li><input class="dropdown-item" type="text" name="ciudad" placeholder="Ciudad"></li>
+                            <li><input class="dropdown-item" type="text" name="estado" placeholder="Estado"></li>
+                            <li><input class="dropdown-item" type="number" name="cp" placeholder="Codigo Postal"></li>
+                            <li><input class="dropdown-item" type="number" name="precio-min" placeholder="min."></li>
+                            <li><input class="dropdown-item" type="number" name="precio-max" placeholder="max."></li>
+                            <li><input class="dropdown-item" type="number" name="recamaras" placeholder="Recamaras"></li>
+                            <li><input class="dropdown-item" type="number" name="banos" placeholder="Ba&#241os"></li>
+                            <li><input style="background: #3656c6; color:#ffffff;" class="dropdown-item" type="submit" value="Buscar"></li>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="der">
+        <div class="image">
+            <a href="/admin/">
+                <img class="img1" src="{% static 'img/icons/admin1.png' %}" alt="Admin Page">
+                <img class="img2" src="{% static 'img/icons/admin.png' %}" alt="Admin Page">
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.footer {
+  display: flex; 
+  justify-content: center;
+  background: $colorBase;
+  width: 100%;
+  .image{
+    height: 50%;
+    img{
+      max-height: 100px;
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    li {
+      width: auto;
+      text-decoration: none;
+      padding: 10px;
+      a {
+        width: auto;
+        text-decoration: none;
+        color: $white;
+        &:hover{
+          color: $warning;
+        }
+      }
+    }
+  }
+}
+// @include media("<=tablet") {
+//   .footer {
+//     height: 0%;
+//     ul{
+//       display: none;
+//     }
+//   }
+// }

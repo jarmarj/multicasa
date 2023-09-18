@@ -1,0 +1,47 @@
+{% extends 'shared/base.html' %}
+
+{% block content %} 
+{% load static %}
+<div class="others-container">
+    <H2>¡Contáctanos!</H2>
+    <div class="info-container" style="border: solid 2px; border-radius:5px; background-color: azure;">
+        <div class="info">
+            <h4>Adrián Rodríguez </h4>
+            <div><label style="font-weight: normal;"><b>Telefono:</b> 844-666-1111</label></div>
+            <div><label style="font-weight: normal;"><b>Email:</b> Jarm@casas.com</label></div>
+        </div>
+        <div class="image">
+            <img src="{% static 'img/icons/phone.png' %}" alt="">
+        </div>
+    </div>
+    <div class="info-container" class="info-container" style="border: solid 3px; border-radius:5px; background-color: azure;">
+        <div class="info">
+            <h4>Sergio Suarez</h4>
+            <div><label style="font-weight: normal;"><b>Telefono:</b> 844-666-2222</label></div>
+            <div><label style="font-weight: normal;"><b>Email:</b> Sasv@casas.com</label></div>
+        </div>
+        <div class="image">
+            <img src="{% static 'img/icons/phone.png' %}" alt="">
+        </div>
+    </div>
+    <div class="info-container" style="border: solid 3px; border-radius:5px; background-color: azure;">
+        <div class="info">
+            <h4>Led Vázquez</h4>
+            <div><label style="font-weight: normal;"><b>TelTelefono:</b> 844-666-3333</label></div>
+            <div><label style="font-weight: normal;"><b>Email:</b> Alvh@casas.com</label></div>
+        </div>
+        <div class="image">
+            <img src="{% static 'img/icons/phone.png' %}" alt="">
+        </div>
+    </div>
+    <h3>¡Visítanos!</h3>
+    <div class="info-container" style="border: solid 3px; border-radius:5px; background-color: bisque;">
+        <div class="info">
+            <h4>Saltillo Centro</h4>
+            <div><label style="font-weight: normal;"><b>Telefono:</b> 844-666-8888</label></div>
+            <div><label style="font-weight: normal;"><b>Email:</b> casa-movil@casas.com</label></div>
+            <div><label style="font-weight: normal;"><b>Dirección:</b> Xicoténcatl y Victoria, #2425, Col. centro</label></div>                
+        </div>
+    </div>
+</div>
+{% endblock %}

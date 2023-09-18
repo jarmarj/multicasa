@@ -1,0 +1,87 @@
+{% extends 'shared/base.html' %}
+
+{% block content %} 
+<div class="container-details">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">        
+            {% for img in casa.imagenes.all %}
+            <div class="carousel-item active">
+                <img src="{{img.imagen.url}}" alt="...">
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="details-casa">
+        <div class="detail">
+            <strong>Ciudad: </strong>
+            <p>{{casa.ciudad}}</p>
+        </div>
+        <div class="detail">
+            <strong>Estado: </strong>
+            <p>{{casa.estado}}</p>
+        </div>
+        <div class="detail">
+            <strong>Calle: </strong>
+            <p>{{casa.calle}}</p>
+        </div>
+        <div class="detail">
+            <strong>Colonia: </strong>
+            <p>{{casa.colonia}}</p>
+        </div>
+        <div class="detail">
+            <strong>Codigo Postal: </strong>
+            <p>{{casa.cp}}</p>
+        </div>
+        <div class="detail">
+            <strong>Precio: </strong>
+            <p>${{casa.precio}}</p>
+        </div>
+        <div class="detail">
+            <strong>Baños: </strong>
+            <p>{{casa.banos}}</p>
+        </div>
+        <div class="detail">
+            <strong>Recamaras: </strong>
+            <p>{{casa.recamaras}}</p>
+        </div>
+        <div class="detail">
+            <strong>m&#178:</strong>
+            <p>{{casa.metros}}</p>
+        </div>
+        <div class="link-pdf">
+            <a href="{% url 'multicasa_pdf' casa.id %}"><button type="button" class="btn btn-danger">PDF</button></a>
+        </div>
+        {% if casa.vendida == True %}
+        <div class="detail vendida">
+            <p><strong>VENDIDA</strong></p>
+        </div>        
+        {% endif %}
+    </div>
+    <div class="map" id="map"></div>
+</div>
+{% if is_details %}
+<script>
+    function initMap(){
+        var coord = {lat:{{casa.latitud}},lng:{{casa.longitud}}};
+        var map = new google.maps.Map(document.getElementById('map'),{
+          zoom: 15,
+          center: coord
+        });
+        var marker = new google.maps.Marker({
+          position: coord,
+          map: map
+        });
+    }
+</script>
+{% endif %}
+
+{% endblock %}

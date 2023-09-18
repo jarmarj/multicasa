@@ -1,0 +1,32 @@
+<form name="searchForm" action="{% url 'results' %}" method="GET">
+    <div class="buscar ciudad">
+        <!-- <label for="ciudad">Ciudad</label> -->
+        <input type="text" name="ciudad" placeholder="Ciudad">
+    </div>
+    <div class="buscar estado">
+        <!-- <label for="estado">Estado</label> -->
+        <input type="text" name="estado" placeholder="Estado">
+    </div>
+    <div class="buscar cp">
+        <!-- <label for="cp">CP</label> -->
+        <input type="number" name="cp" placeholder="Codigo Postal">
+    </div>
+    <div class="buscar precio" style="display: flex; flex-direction: column;">
+        {% comment %} <label for="precio">Rango de precio</label> {% endcomment %}
+        <div class="precios" style="display: flex; flex-direction: row;">
+            <input style="margin:5px" type="number" name="precio-min" placeholder="min.">
+            <input style="margin:5px" type="number" name="precio-max" placeholder="max.">
+        </div>
+    </div>
+    <div class="buscar recamaras">
+        <!-- <label for="recamaras">Recamaras</label> -->
+        <input type="number" name="recamaras" placeholder="Recamaras">
+    </div>
+    <div class="buscar banos">
+        <!-- <label for="banos">Ba&#241os</label> -->
+        <input type="number" name="banos" placeholder="Ba&#241os">
+    </div>
+    <div class="buscar-button">
+        <button type="submit">Buscar</button>
+    </div>
+</form>

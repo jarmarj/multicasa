@@ -1,0 +1,61 @@
+.main {
+	width: 100%;
+	min-height: 75%;
+	display: flex;
+	flex-direction: column;
+	.content {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		.section {
+			.image {
+				width: 100%;
+				img {
+					width: 100%;
+				}
+			}
+			.video{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				min-height: 500px;
+				iframe{
+					width: 90%;
+					height: 100%;
+				}
+			}
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			overflow: auto;
+			// padding: 10px;
+			min-height: 80vh;
+			width: 75%;
+			background: $white;
+			@import "results.scss";
+			@import "details.scss";
+			@import "other-containers.scss";
+		}
+		@import "sideBar.scss";
+	}
+}
+@include media("<=tablet") {
+	.main {
+		height: 85%;
+		.content {
+			.section {
+				width: 100%;
+				.container-casas {
+					align-items: center;
+					.casa {
+						flex-direction: column;
+					}
+				}
+			}
+			.side {
+				display: none;
+			}
+		}
+	}
+}

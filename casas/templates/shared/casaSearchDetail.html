@@ -1,0 +1,16 @@
+<div class="image-casa">
+    <a href="/details/{{casa.id}}">
+        {% if casa.imagenes %}
+        <img src="{{casa.imagenes.first.imagen.url}}" alt="imagen casa" />
+        {% endif %}
+    </a>
+</div>
+<div class="details-casa">
+    <p><strong>Calle: </strong>{{casa.calle}}</p>
+    <p><strong>Colonia: </strong>{{casa.colonia}}</p>
+    <p><strong>Precio: </strong>${{casa.precio}}</p>
+    <p><strong>Baños: </strong>{{casa.banos}}</p>
+    <p><strong>Recamaras: </strong>{{casa.recamaras}}</p>
+    <p><strong>Tamaño en m&#178: </strong>{{casa.metros}}</p>
+</div>
+{% comment %} NO USE ESTE ELEMENTO HTML {% endcomment %}

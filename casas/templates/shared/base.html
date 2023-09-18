@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load static %}
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="js/jsPDF/dist/jspdf.umd.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'css/style.css' %}"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+		/>
+		<title>Multicasa</title>
+	</head>
+	<body>
+		<div class="container">
+			{% include './header.html' %}
+			<div class="main">
+				<div class="content">
+					<div class="section">{% block content %}{% endblock %}</div>
+					<div class="side">
+						<div class="up">
+							{% if detail_casa_page %}
+								<a href="{% url 'help' %}">Picale para registrarte y recibir asesoria :)</a>
+							{% else %}
+								<div class="image">
+									<img src="{% static 'img/icons/searchIcon.png' %}" alt="">
+								</div>
+							{% endif %}
+						</div>
+						<div class="image">
+							
+						</div>
+						
+						{% include './searchForm.html' %}
+						<div class="last">
+							<div class="last-added-title"><h3>Ultima casa agregada</h3></div>
+							<a class="last-added" href="{% url 'details' last_added.id %}">
+								<img src="{% static 'img/icons/con.png' %}" alt="">
+								<p>{{last_added.calle}}, {{last_added.colonia}}, {{last_added.ciudad}}</p>
+							</a>
+							<br>
+							<a class="db-link" href="{% url 'dashboard' %}">
+								<p>Quieres ver nuestras graficas? Entra aqui</p>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				{% include './footer.html' %}
+			</div>
+		</div>
+		<div class="blur-message">
+			<p><strong>
+				Esta pagina no permite resolucion
+				de pantalla menores a 350px.<strong>
+			</p>
+			<p><strong>Sentimos las molestias :(</strong></p>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+		{% if is_details %}<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlc0xCFtq-Rt4192WCDotRO40Ok-BPVMI&callback=initMap"></script>{% endif %}
+	</body>
+</html>

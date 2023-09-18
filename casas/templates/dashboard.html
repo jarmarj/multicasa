@@ -1,0 +1,56 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<div class="others-container">
+
+    <div class="casas-encontradas">
+
+        <div class="vendidas">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                    var vendidas = google.visualization.arrayToDataTable([
+                        ['Casas', 'Total de casas'],
+                        ['Vendidas', {{vendidas|length}}],
+                        ['No vendidas', {{no_vendidas|length}}]
+                    ]);
+                    var options = {
+                        title: 'Casas Vendidas/No vendidas'
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('vendidas'));
+                    chart.draw(vendidas, options);
+                }
+            </script>
+            <div id="vendidas" style="width: 900px; height: 500px;"></div>
+        </div>
+        <div class="municipios">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+              google.charts.load("current", {packages:["corechart"]});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Municipios', 'Total de casas'],
+                  ['Saltillo',     {{casas_saltillo|length}}],
+                  ['Arteaga',      {{casas_arteaga|length}}],
+                  ['Ramos Arizpe',  {{casas_ramos|length}}]
+                ]);
+        
+                var options = {
+                  title: 'Casas por municipio',
+                  is3D: true,
+                };
+        
+                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                chart.draw(data, options);
+              }
+            </script>
+            <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
